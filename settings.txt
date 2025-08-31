@@ -1,0 +1,44 @@
+Fix phpMyAdmin Connection
+Go to your XAMPP installation folder → xampp\phpMyAdmin\config.inc.php
+
+Open it in Notepad (or any text editor).
+
+Find:
+
+php
+Copy
+Edit
+$cfg['Servers'][$i]['host'] = '127.0.0.1';
+Change it to:
+
+php
+Copy
+Edit
+$cfg['Servers'][$i]['host'] = '127.0.0.1:3307';
+
+ Create Your Database & Table
+Once phpMyAdmin is connected:
+
+Click Databases tab.
+
+Under Create database, type:
+
+nginx
+Copy
+Edit
+simple_app
+
+
+Click on simple_app in the left sidebar → SQL tab.
+
+Paste this:
+
+sql
+Copy
+Edit
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
